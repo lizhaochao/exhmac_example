@@ -17,4 +17,15 @@ defmodule UsagesTest do
   test "via defhmac - ok" do
     assert :ok == Client.C.request_sign_in()
   end
+
+  describe "customize hmac" do
+    test "decorator - no config" do
+      %{error_msg: error_msg} = Map.new(Client.request_sign_in())
+      assert "signature_error" == error_msg
+    end
+
+    test "defhmac - config many" do
+      assert :ok == Client.request_login_in()
+    end
+  end
 end

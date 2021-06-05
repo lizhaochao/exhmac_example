@@ -12,14 +12,17 @@ defmodule Client.A do
   def request_sign_in do
     with(
       params <- make_req_params(),
-      signature <- Helper.make_signature(params, @access_key, @secret_key),
+      signature <- sign(params, @access_key, @secret_key),
       params <- Helper.append_signature(params, signature),
       json_string <- Helper.serialize(params)
     ) do
       json_string
       |> Server.A.sign_in()
       |> Helper.deserialize()
-      |> check_hmac(@access_key, @secret_key)
+      |> case do
+        resp when map_size(resp) == 4 -> check_hmac(resp, @access_key, @secret_key)
+        resp -> resp
+      end
     end
   end
 
@@ -67,7 +70,7 @@ defmodule Server.A do
   def make_resp_with_hmac(code, access_key, secret_key) do
     with(
       params <- make_res_params(code),
-      signature <- Helper.make_signature(params, access_key, secret_key),
+      signature <- sign(params, access_key, secret_key),
       params <- Helper.append_signature(params, signature),
       resp <- Helper.serialize(params)
     ) do

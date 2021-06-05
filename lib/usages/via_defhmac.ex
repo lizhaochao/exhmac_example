@@ -23,10 +23,13 @@ defmodule Client.C do
         timestamp: timestamp,
         nonce: nonce
       ],
-      signature <- Helper.make_signature(params, @access_key, @secret_key)
+      signature <- sign(params, @access_key, @secret_key)
     ) do
       Server.C.sign_in(username, password, access_key, timestamp, nonce, signature)
-      |> check_hmac(@access_key, @secret_key)
+      |> case do
+        resp when length(resp) == 4 -> check_hmac(resp, @access_key, @secret_key)
+        resp -> resp
+      end
     end
   end
 end

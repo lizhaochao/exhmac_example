@@ -1,5 +1,5 @@
 %{
   "decorator": {:hex, :decorator, "1.4.0", "a57ac32c823ea7e4e67f5af56412d12b33274661bb7640ec7fc882f8d23ac419", [:mix], [], "hexpm", "0a07cedd9083da875c7418dea95b78361197cf2bf3211d743f6f7ce39656597f"},
-  "exhmac": {:hex, :exhmac, "0.3.1", "d992b1abdd7ac59bbd0088362acdecf791e7d0091ef537ef2f4f7a75e11026fd", [:mix], [{:decorator, "~> 1.4.0", [hex: :decorator, repo: "hexpm", optional: false]}, {:poison, "~> 4.0.1", [hex: :poison, repo: "hexpm", optional: false]}], "hexpm", "cdac8e215b06bb9a5e6a6af163ede1721337a995b614cc2fa69540f8779ce16a"},
+  "exhmac": {:hex, :exhmac, "0.3.4", "16fb9c3c3e226204cc1517a30960fdee29985874e5df4404fae04160f72c392a", [:mix], [{:decorator, "~> 1.4.0", [hex: :decorator, repo: "hexpm", optional: false]}, {:poison, "~> 4.0.1", [hex: :poison, repo: "hexpm", optional: false]}], "hexpm", "19526331145f94d50ea13e7328656ffbc232f7eb0eb2614f9a75dc088dc81f3d"},
   "poison": {:hex, :poison, "4.0.1", "bcb755a16fac91cad79bfe9fc3585bb07b9331e50cfe3420a24bcc2d735709ae", [:mix], [], "hexpm", "ba8836feea4b394bb718a161fc59a288fe0109b5006d6bdf97b6badfcf6f0f25"},
 }
