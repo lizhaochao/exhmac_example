@@ -93,17 +93,45 @@ defmodule Server.Hmac do
     nonce_name: :nonce
 
   ### Callbacks
-  def get_secret_key(access_key), do: Helper.get_test_secret_key(access_key)
+  def get_secret_key(access_key) do
+    Helper.get_test_secret_key(access_key)
+    # NOTICE: return value must be string
+  end
 
   def check_nonce(nonce, curr_ts, nonce_freezing_secs, precision) do
     # clean unused warnings
     {nonce, curr_ts, nonce_freezing_secs, precision}
+    # NOTICE: return value must be :ok or :invalid_nonce
     :ok
   end
 
-  def encode_hash_result(hash_result), do: Base.encode64(hash_result, case: :upper)
+  def make_sign_string(args, access_key, secret_key) do
+    to_json_string = fn term ->
+      case term do
+        term when is_bitstring(term) -> term
+        term when is_atom(term) -> Atom.to_string(term)
+        term -> term |> Poison.encode() |> elem(1)
+      end
+    end
+
+    args
+    |> Keyword.drop([:signature])
+    |> Keyword.put(:access_key, access_key)
+    |> Keyword.put(:secret_key, secret_key)
+    |> Enum.sort()
+    |> Enum.map(fn {k, v} -> "#{k}=#{to_json_string.(v)}" end)
+    |> Enum.join("&")
+
+    # NOTICE: return value must be string
+  end
+
+  def encode_hash_result(hash_result) do
+    Base.encode64(hash_result, case: :upper)
+    # NOTICE: return value must be string
+  end
 
   def fmt_resp(resp) do
+    # NOTICE: resp is atom means a error, you should convert it
     case resp do
       [username, password] -> %{a: username, b: password, c: "c", d: "d"}
       err when is_atom(err) -> %{result: 10_001, error_msg: to_string(err)}
