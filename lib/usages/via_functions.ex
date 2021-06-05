@@ -1,4 +1,9 @@
 defmodule Client.A do
+  @moduledoc """
+    Docs:
+    gitee: https://gitee.com/lizhaochao/exhmac
+    github: https://github.com/lizhaochao/exhmac
+  """
   use ExHmac
 
   @access_key Helper.get_test_access_key()
@@ -34,8 +39,6 @@ defmodule Client.A do
 end
 
 ### ### ###     Above Client        ### ### ### ### ###
-### ### ### ### ### ### ### ### ### ### ### ### ### ###
-
 ### ### ### ### ### ### ### ### ### ### ### ### ### ###
 ### ### ###     Following Server    ### ### ### ### ###
 

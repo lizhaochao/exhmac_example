@@ -1,4 +1,9 @@
 defmodule Client.C do
+  @moduledoc """
+    Docs:
+    gitee: https://gitee.com/lizhaochao/exhmac
+    github: https://github.com/lizhaochao/exhmac
+  """
   use ExHmac
 
   @access_key Helper.get_test_access_key()
@@ -28,11 +33,14 @@ end
 
 ### ### ###     Above Client        ### ### ### ### ###
 ### ### ### ### ### ### ### ### ### ### ### ### ### ###
-
-### ### ### ### ### ### ### ### ### ### ### ### ### ###
 ### ### ###     Following Server    ### ### ### ### ###
 
 defmodule Server.C.Hmac do
+  @moduledoc """
+    Docs:
+    gitee: https://gitee.com/lizhaochao/exhmac
+    github: https://github.com/lizhaochao/exhmac
+  """
   use ExHmac.Defhmac
 
   def get_secret_key(access_key) do

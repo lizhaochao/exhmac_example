@@ -1,4 +1,9 @@
 defmodule Helper do
+  @moduledoc """
+    Docs:
+    gitee: https://gitee.com/lizhaochao/exhmac
+    github: https://github.com/lizhaochao/exhmac
+  """
   use ExHmac
 
   def get_error_code, do: -1
