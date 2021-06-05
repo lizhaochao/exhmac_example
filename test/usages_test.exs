@@ -13,4 +13,8 @@ defmodule UsagesTest do
   test "via decorator - ok" do
     assert :ok == Client.B.request_sign_in()
   end
+
+  test "via defhmac - ok" do
+    assert :ok == Client.C.request_sign_in()
+  end
 end
