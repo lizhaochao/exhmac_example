@@ -6,6 +6,7 @@ defmodule Client.Hmac do
   """
   use ExHmac,
     precision: :millisecond,
+    nonce_freezing_secs: 60,
     hash_alg: :sha512,
     warn: false,
     nonce_len: 20,
@@ -79,10 +80,11 @@ end
 ### ### ###     Following Server    ### ### ### ### ###
 
 defmodule Server.Hmac do
-  use ExHmac
+  use ExHmac, precision: :millisecond
 
   use ExHmac.Defhmac,
     precision: :millisecond,
+    nonce_freezing_secs: 60,
     hash_alg: :sha512,
     warn: false,
     nonce_len: 20,
