@@ -1,6 +1,6 @@
 %{
   "atomic_map": {:hex, :atomic_map, "0.9.3", "3c7f1302e0590164732d08ca999708efbb2cd768abf2911cf140280ce2dc499d", [:mix], [], "hexpm", "c237babf301bd2435bd85b96cffc973022b4cbb7721537059ee0dd3bb74938d2"},
   "decorator": {:hex, :decorator, "1.4.0", "a57ac32c823ea7e4e67f5af56412d12b33274661bb7640ec7fc882f8d23ac419", [:mix], [], "hexpm", "0a07cedd9083da875c7418dea95b78361197cf2bf3211d743f6f7ce39656597f"},
-  "exhmac": {:hex, :exhmac, "1.1.0", "300807738502b380907872c39ef7af61b9df437876c2e2a4e1c2aba8dfc75f3b", [:mix], [{:atomic_map, "~> 0.9.3", [hex: :atomic_map, repo: "hexpm", optional: false]}, {:decorator, "~> 1.4.0", [hex: :decorator, repo: "hexpm", optional: false]}, {:poison, "~> 4.0.1", [hex: :poison, repo: "hexpm", optional: false]}], "hexpm", "edac9846ff17e6ad7e695b41917aeb8d42470f88c69dc06b9435ec1b69c97d85"},
+  "exhmac": {:hex, :exhmac, "1.1.1", "40bdcf0ec11bdd8622d098adc14a53c2bca3265939f7d450ef9d3e55e99cd027", [:mix], [{:atomic_map, "~> 0.9.3", [hex: :atomic_map, repo: "hexpm", optional: false]}, {:decorator, "~> 1.4.0", [hex: :decorator, repo: "hexpm", optional: false]}, {:poison, "~> 4.0.1", [hex: :poison, repo: "hexpm", optional: false]}], "hexpm", "e485d69f476d90f832bd20466e2ce2cbad991e1310c69a09054e158b9aab9f42"},
   "poison": {:hex, :poison, "4.0.1", "bcb755a16fac91cad79bfe9fc3585bb07b9331e50cfe3420a24bcc2d735709ae", [:mix], [], "hexpm", "ba8836feea4b394bb718a161fc59a288fe0109b5006d6bdf97b6badfcf6f0f25"},
 }
