@@ -68,7 +68,7 @@ defmodule Client do
     ) do
       Server.login_in(username, password, access_key, timestamp, nonce, signature)
       |> case do
-        resp when length(resp) == 7 -> check_hmac(resp, @access_key, @secret_key)
+        {:post_hook, resp} when length(resp) == 7 -> check_hmac(resp, @access_key, @secret_key)
         resp -> resp
       end
     end
@@ -94,7 +94,13 @@ defmodule Server.Hmac do
     timestamp_name: :timestamp,
     nonce_name: :nonce
 
+  ### Hooks
+  def pre_hook(args), do: args
+  def post_hook(resp), do: {:post_hook, resp}
+
   ### Callbacks
+  def get_access_key(args), do: Keyword.get(args, :access_key)
+
   def get_secret_key(access_key) do
     Helper.get_test_secret_key(access_key)
     # NOTICE: return value must be string

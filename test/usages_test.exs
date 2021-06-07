@@ -20,7 +20,8 @@ defmodule UsagesTest do
 
   describe "customize hmac" do
     test "decorator - no config" do
-      %{error_msg: error_msg} = Map.new(Client.request_sign_in())
+      {:post_hook, resp} = Client.request_sign_in()
+      %{error_msg: error_msg} = Map.new(resp)
       assert "signature_error" == error_msg
     end
 

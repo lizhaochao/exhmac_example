@@ -13,6 +13,6 @@ defmodule ExHmacExample.MixProject do
   end
 
   def application, do: [extra_applications: [:logger], mod: {ExHmacExample.Application, []}]
-  defp deps, do: [{:exhmac, "~> 1.0.1"}]
+  defp deps, do: [{:exhmac, "~> 1.1.0"}]
   defp aliases, do: [test: ["format", "test"]]
 end
